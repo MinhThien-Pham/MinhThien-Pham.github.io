@@ -2,37 +2,762 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Minh Thien Pham</title>
+  <title>Minh Thien Pham | CS Student & Backend Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Minh Thien Pham – Computer Science student at UCF focused on backend, systems, and security."
+  />
   <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1120;
+      --card: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius: 14px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.9);
+      --shadow-chip: 0 8px 18px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      max-width: 720px;
-      margin: 40px auto;
-      padding: 0 16px;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
       line-height: 1.6;
     }
-    h1 { margin-bottom: 0; }
-    h2 { margin-top: 2rem; }
-    a { text-decoration: none; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-name {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-tagline {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 50px;
+      padding-bottom: 36px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--muted);
+      background: radial-gradient(
+        circle at top left,
+        rgba(56, 189, 248, 0.12),
+        rgba(15, 23, 42, 0.95)
+      );
+      box-shadow: var(--shadow-chip);
+    }
+
+    .badge-accent {
+      border-color: rgba(56, 189, 248, 0.7);
+      color: var(--accent);
+      background: linear-gradient(
+        120deg,
+        rgba(8, 47, 73, 0.9),
+        rgba(15, 23, 42, 1)
+      );
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3.4vw, 2.6rem);
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(120deg, #e5e7eb, #38bdf8, #a5b4fc);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: radial-gradient(
+        circle at top left,
+        rgba(15, 23, 42, 0.9),
+        #020617
+      );
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: var(--shadow-chip);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      border-color: rgba(56, 189, 248, 0.8);
+      background: radial-gradient(
+        circle at top left,
+        rgba(56, 189, 248, 0.25),
+        #020617
+      );
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.95);
+      text-decoration: none;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      color: var(--accent);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .pill strong {
+      color: var(--accent);
+    }
+
+    /* Hero card */
+    .hero-card {
+      border-radius: 18px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: radial-gradient(
+        circle at top,
+        rgba(56, 189, 248, 0.16),
+        rgba(15, 23, 42, 0.98)
+      );
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .hero-card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-card-tag {
+      font-size: 0.75rem;
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.7);
+    }
+
+    .hero-card-body {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 10px;
+      padding: 12px 12px 10px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      max-height: 222px;
+      overflow: auto;
+      white-space: pre;
+    }
+
+    .hero-card-footer {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .hero-card-footer span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    /* Sections */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 6px;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .grid-projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-projects {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: linear-gradient(
+        150deg,
+        rgba(15, 23, 42, 0.98),
+        rgba(15, 23, 42, 0.96)
+      );
+      padding: 14px 14px 12px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+    }
+
+    .card-body {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .card-meta span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .card-links {
+      margin-top: 6px;
+      font-size: 0.78rem;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .card-links a {
+      color: var(--accent);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-card {
+      border-radius: var(--radius);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: radial-gradient(
+        circle at top left,
+        rgba(56, 189, 248, 0.1),
+        rgba(15, 23, 42, 0.98)
+      );
+      padding: 14px;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-card dt {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .contact-card dd {
+      margin: 2px 0 6px;
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.85);
+      padding: 16px 0 18px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--accent);
+    }
   </style>
 </head>
 <body>
-  <h1>Minh Thien Pham</h1>
-  <p>Computer Science student at UCF, interested in backend, security, and web development.</p>
+  <div class="page">
+    <header>
+      <div class="container">
+        <div class="nav">
+          <div class="nav-left">
+            <span class="logo-name">MINH THIEN PHAM</span>
+            <span class="logo-tagline">CS @ UCF · Backend & Systems · Security</span>
+          </div>
+          <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="mailto:phamminhthien065@gmail.com">Email</a></li>
-    <li><a href="https://github.com/MinhThien-Pham">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/minh-thien-p-9627202a3">LinkedIn</a></li>
-  </ul>
+    <main>
+      <!-- Hero / Home -->
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-inner">
+            <div>
+              <div class="hero-badge-row">
+                <span class="badge-accent">Computer Science @ UCF</span>
+                <span class="badge">Backend · Systems · Security</span>
+              </div>
 
-  <h2>Projects</h2>
-  <ul>
-    <li><strong>GrubGo:</strong> Secure auth & OTP module (Node.js, Express, MongoDB, JWT).</li>
-    <li><strong>PL/0 Compiler & VM:</strong> Hand-written lexer, parser, and stack-based VM in C.</li>
-    <li><strong>Contact Manager API v2:</strong> Refactored PHP/LAMP backend with password hashing & better validation.</li>
-  </ul>
+              <h1 class="hero-title">
+                Hi, I'm <span class="hero-gradient">Minh&nbsp;Thien&nbsp;Pham</span>
+              </h1>
+
+              <p class="hero-subtitle">
+                I'm a <strong>Computer Science student at the University of Central Florida</strong>,
+                interested in <strong>backend web APIs, systems programming, and security</strong>.
+                I like building things that are practical, well-structured, and secure enough to
+                survive real users.
+              </p>
+
+              <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View selected projects</a>
+                <a href="#contact" class="btn">Get in touch</a>
+              </div>
+
+              <div class="hero-meta">
+                Currently: <span>B.S. in CS (Dec 2026)</span> ·
+                Minors in <span>Mathematics</span> and <span>Secure Computing & Networks</span>
+                <div class="pill-row">
+                  <span class="pill"><strong>Languages:</strong> C, C++, Java, JavaScript, PHP, SQL, Python</span>
+                  <span class="pill"><strong>Backend:</strong> Node.js, Express, PHP/LAMP, MongoDB, MySQL</span>
+                  <span class="pill"><strong>Focus:</strong> systems, backend, security</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="hero-card" aria-label="Sample work snapshot">
+              <div class="hero-card-header">
+                <span class="hero-card-title">Recent Work Snapshot</span>
+                <span class="hero-card-tag">GrubGo Auth & 2FA</span>
+              </div>
+              <div class="hero-card-body">
+{`POST /api/users/login
+→ Flexible login using email | username | identifier
+
+If !isEmailVerified:
+  • Send EMAIL_VERIFICATION OTP
+  • Respond with status: "PENDING"
+
+If isEmailVerified:
+  • Send TWO_FACTOR_AUTH OTP
+  • Respond with status: "PENDING"
+  • Frontend shows OTP screen
+
+POST /api/auth/verify-2fa-otp
+→ Validate OTP, enforce expiry & max attempts
+→ Delete OTP record
+→ Return user without password, always with cart[] field
+`}
+              </div>
+              <div class="hero-card-footer">
+                <span>Node.js · Express · MongoDB</span>
+                <span>Email OTP · 2FA · JWT</span>
+                <span>Secure flows · Team project</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Selected Projects</h2>
+          <p class="section-subtitle">
+            A mix of <strong>backend APIs</strong>, a <strong>PL/0 compiler & VM in C</strong>,
+            and <strong>security-focused auth work</strong>. More projects are available on my
+            <a href="https://github.com/MinhThien-Pham" target="_blank" rel="noreferrer">GitHub</a>.
+          </p>
+
+          <div class="grid-projects">
+            <!-- GrubGo Auth -->
+            <article class="card">
+              <div class="card-header-row">
+                <h3 class="card-title">GrubGo – Auth, OTP & 2FA</h3>
+                <span class="card-tag">Team · Node.js / MongoDB</span>
+              </div>
+              <div class="card-body">
+                Extended an existing restaurant web app with a secure auth module:
+                verified sign-up, flexible login (email/username), email-based
+                2FA, and a multi-step password reset flow using OTPs and short-lived JWTs.
+              </div>
+              <div class="card-meta">
+                <span>Secure login & signup</span>
+                <span>Email OTP & 2FA</span>
+                <span>Password reset with JWT</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/JacksonCammack-UCF/GrubGo" target="_blank" rel="noreferrer">
+                  View repo
+                </a>
+              </div>
+            </article>
+
+            <!-- Node OTP 2FA Auth -->
+            <article class="card">
+              <div class="card-header-row">
+                <h3 class="card-title">Secure Auth API – OTP & 2FA</h3>
+                <span class="card-tag">Solo · Node.js / MongoDB</span>
+              </div>
+              <div class="card-body">
+                Built a standalone authentication backend that supports email
+                verification, mandatory 2FA for sign-in, and password reset
+                via OTP + JWT, using hashed OTPs and clear security boundaries.
+              </div>
+              <div class="card-meta">
+                <span>REST API design</span>
+                <span>Mailjet email OTP</span>
+                <span>bcrypt, JWT, Express</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/MinhThien-Pham/node-otp-2fa-auth" target="_blank" rel="noreferrer">
+                  View repo
+                </a>
+              </div>
+            </article>
+
+            <!-- PL/0 Compiler -->
+            <article class="card">
+              <div class="card-header-row">
+                <h3 class="card-title">PL/0 Compiler & VM</h3>
+                <span class="card-tag">Solo · C / Systems</span>
+              </div>
+              <div class="card-body">
+                Implemented a PL/0-style toolchain from scratch: hand-written lexer,
+                recursive-descent parser + code generator, and a PM/0 stack-based
+                virtual machine with lexical scoping and full execution tracing.
+              </div>
+              <div class="card-meta">
+                <span>Lexing & parsing</span>
+                <span>Codegen & VM</span>
+                <span>Low-level debugging</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/MinhThien-Pham/pl0-compiler-vm" target="_blank" rel="noreferrer">
+                  View repo
+                </a>
+              </div>
+            </article>
+
+            <!-- Contact Manager API v2 -->
+            <article class="card">
+              <div class="card-header-row">
+                <h3 class="card-title">Contact Manager API v2</h3>
+                <span class="card-tag">Solo · PHP / MySQL</span>
+              </div>
+              <div class="card-body">
+                Refactored a team project backend into a clean standalone REST-style
+                API with centralized helpers, password hashing, better validation,
+                and improved JSON responses for user and contact management.
+              </div>
+              <div class="card-meta">
+                <span>PHP / LAMP</span>
+                <span>Password hashing</span>
+                <span>Swagger/OpenAPI docs</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/MinhThien-Pham/contact-manager-api-v2" target="_blank" rel="noreferrer">
+                  View repo
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">
+            I'm currently looking for <strong>software engineering</strong> and
+            <strong>backend / systems</strong> internships. English is my second
+            language, but I'm comfortable communicating in technical and team
+            settings and always improving.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <p>
+                If you'd like to talk about an internship, a project, or just
+                connect, feel free to email me or message me on LinkedIn. I'm
+                especially interested in roles involving:
+              </p>
+              <ul>
+                <li>Backend APIs (Node.js, PHP/LAMP, databases)</li>
+                <li>Systems / low-level programming in C or C++</li>
+                <li>Security-minded engineering (auth, 2FA, secure coding)</li>
+              </ul>
+            </div>
+
+            <dl class="contact-card">
+              <dt>Location</dt>
+              <dd>St. Cloud / Orlando, FL (USA)</dd>
+
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:phamminhthien065@gmail.com">phamminhthien065@gmail.com</a><br />
+                <a href="mailto:mi996503@ucf.edu">mi996503@ucf.edu</a>
+              </dd>
+
+              <dt>GitHub</dt>
+              <dd>
+                <a href="https://github.com/MinhThien-Pham" target="_blank" rel="noreferrer">
+                  github.com/MinhThien-Pham
+                </a>
+              </dd>
+
+              <dt>LinkedIn</dt>
+              <dd>
+                <a
+                  href="https://www.linkedin.com/in/minh-thien-p-9627202a3/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  linkedin.com/in/minh-thien-p-9627202a3
+                </a>
+              </dd>
+
+              <dt>Current Focus</dt>
+              <dd>
+                Finishing my CS core at UCF, strengthening my algorithms and
+                systems foundations, and building more backend + security projects.
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+          <span>© <span id="year"></span> Minh Thien Pham. All rights reserved.</span>
+          <span>
+            Built with <span style="color:#f97316;">HTML & CSS</span> · Hosted on
+            <a href="https://pages.github.com/" target="_blank" rel="noreferrer">GitHub Pages</a>
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
