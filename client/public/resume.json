@@ -1,0 +1,141 @@
+{
+    "personalInfo": {
+        "name": "Minh Thien Pham",
+        "title": "Computer Science Student",
+        "bio": "I'm a Computer Science student at the University of Central Florida, interested in backend web APIs, systems programming, and security. I like building things that are practical, well-structured, and secure enough to survive real users.",
+        "email": "mi996503@ucf.edu",
+        "secondaryEmail": "phamminhthien065@gmail.com",
+        "phone": "407-744-6527",
+        "location": "Orlando, FL",
+        "githubUrl": "https://github.com/minhthienpham",
+        "linkedinUrl": "https://linkedin.com/in/minhthienpham",
+        "portfolioUrl": "#"
+    },
+    "education": [
+        {
+            "school": "University of Central Florida (UCF)",
+            "degree": "Bachelor of Science in Computer Science",
+            "graduationDate": "May 2027",
+            "gpa": "3.914",
+            "minors": "Mathematics; Secure Computing & Networks"
+        }
+    ],
+    "skills": [
+        {
+            "category": "Languages",
+            "items": [
+                "C",
+                "C++",
+                "Python",
+                "Java",
+                "TypeScript/JavaScript",
+                "PHP",
+                "SQL"
+            ]
+        },
+        {
+            "category": "Frameworks/Runtime",
+            "items": [
+                "Electron",
+                "React",
+                "Node.js",
+                "Express",
+                "WebSockets"
+            ]
+        },
+        {
+            "category": "Databases",
+            "items": [
+                "SQLite (better-sqlite3)",
+                "MySQL",
+                "MongoDB"
+            ]
+        },
+        {
+            "category": "Tools",
+            "items": [
+                "Git/GitHub",
+                "VS Code",
+                "Swagger/OpenAPI",
+                "Linux/UNIX",
+                "HTTP/HTTPS"
+            ]
+        },
+        {
+            "category": "Productivity",
+            "items": [
+                "Microsoft 365",
+                "Power Platform (Apps/Automate/BI)"
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "title": "Freelance Software Engineer",
+            "company": "Nail Bar & Spa of Saint Cloud",
+            "location": "Saint Cloud, FL",
+            "startDate": "November 2025",
+            "isCurrent": true,
+            "description": [
+                "Engineered a local-first POS (Electron/React/TypeScript + SQLite) handling ~700 transactions/month and eliminating owner’s manual payroll math through automated payroll calculations.",
+                "Published 2 customer-facing web surfaces: a cloud-hosted promotional site and a LAN-based PWA for in-salon loyalty tracking and QR-enabled gift card workflows.",
+                "Established staff workflows (clock-in/out, turn/bonus/appointment queues) with role-based 4-digit PIN access (Owner/Receptionist/Tech), supporting ~20 active staff.",
+                "Architected conflict-detection UI to record multi-tech split payments, promo/reward application, and dynamic tip distribution, reducing queue discrepancy issues during high-volume periods."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "title": "Unix-like Shell",
+            "subtitle": "C",
+            "date": "Nov 2025 – Jan 2026",
+            "description": [
+                "Programmed a Unix-like shell in C featuring an interactive REPL, native commands (cd/pwd/echo/type/history/exit), PATH resolution, and process execution.",
+                "Integrated pipelines (multi-command), 4 redirection modes (stdout/stderr overwrite + append), 3 quoting/escaping rules, and persistent history."
+            ]
+        },
+        {
+            "title": "PL/0 Compiler & PM/0 Virtual Machine",
+            "subtitle": "C",
+            "date": "Aug 2025 – Dec 2025",
+            "description": [
+                "Constructed an end-to-end PL/0 toolchain in C (hand-written lexer/recursive-descent parser/code generator/PM/0 stack VM) to compile source programs into bytecode.",
+                "Designed lexical scoping and control flow with JPC/JMP backpatching, targeting a 9-opcode PM/0 VM.",
+                "Implemented a PM/0 virtual machine with PC/BP/SP registers and instruction tracing."
+            ]
+        },
+        {
+            "title": "GrubGo",
+            "subtitle": "Node.js / Express / MongoDB / JWT",
+            "date": "Oct 2025 – Nov 2025",
+            "description": [
+                "Co-developed a full-stack restaurant ordering app in a 4-person team.",
+                "Delivered backend endpoints for registration/login with JWT, role-based admin access control, and cart/order workflows.",
+                "Designed MongoDB collections and validation for users, carts, and orders."
+            ]
+        },
+        {
+            "title": "Contact Manager",
+            "subtitle": "PHP / LAMP / Swagger",
+            "date": "Aug 2025 – Oct 2025",
+            "description": [
+                "Authored authentication and contact CRUD REST endpoints for a PHP/MySQL contact manager web app.",
+                "Led a v2 refactor to centralize DB configurations and standardize JSON responses, documenting endpoints via Swagger."
+            ]
+        }
+    ],
+    "certifications": [
+        {
+            "name": "CompTIA A+",
+            "date": "October 2025"
+        },
+        {
+            "name": "Oracle Cloud Infrastructure 2025 AI Foundations Associate",
+            "date": "July 2025"
+        },
+        {
+            "name": "TestOut CyberDefense Pro",
+            "date": "December 2025"
+        }
+    ]
+}
